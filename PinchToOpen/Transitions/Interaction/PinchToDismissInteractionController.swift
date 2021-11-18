@@ -16,7 +16,6 @@ class PinchToDismissInteractionController: NSObject, InteractionControlling {
 		}
 	}
 	private var initialFrame: CGRect?
-	private var finalFrame: CGRect?
 	private var cancellationAnimator: UIViewPropertyAnimator?
 	
 	private weak var viewController: PinchPresentable!
@@ -47,8 +46,7 @@ class PinchToDismissInteractionController: NSObject, InteractionControlling {
 		case .cancelled:
 			gestureCancelled(velocity: gestureRecognizer.velocity)
 		case .ended:
-			gestureCancelled(velocity: gestureRecognizer.velocity)
-//			gestureEnded(scale: gestureRecognizer.scale, velocity: gestureRecognizer.velocity)
+			gestureEnded(scale: gestureRecognizer.scale, velocity: gestureRecognizer.velocity)
 		default:
 			break
 		}
@@ -90,17 +88,20 @@ class PinchToDismissInteractionController: NSObject, InteractionControlling {
 	func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning) {
 		guard let presentedViewController = transitionContext.viewController(forKey: .from) else { return }
 		initialFrame = transitionContext.initialFrame(for: presentedViewController)
-		finalFrame = transitionContext.finalFrame(for: presentedViewController)
 		self.transitionContext = transitionContext
 	}
 	
 	func update(progress: CGFloat) {
-		guard let transitionContext = transitionContext else { return }
+		guard let transitionContext = transitionContext, let initialFrame = initialFrame else { return }
 		transitionContext.updateInteractiveTransition(progress)
 		guard let presentedViewController = transitionContext.viewController(forKey: .from) else { return }
 		presentedViewController.view.transform = CGAffineTransform(scaleX: currentScale, y: currentScale)
 		presentedViewController.view.alpha = currentScale
-		// TODO: Adjust view's `y` value towards the center of the screen here
+		presentedViewController.view.frame.origin.y = yOfsetOfFrameFor(
+			progress: progress,
+			initialFrame: initialFrame,
+			containerView: transitionContext.containerView
+		)
 		
 		if let modalPresentationController = presentedViewController.presentationController as? PinchModalPresentationController {
 			modalPresentationController.dimmedView.alpha = 1.0 - progress
@@ -172,6 +173,12 @@ class PinchToDismissInteractionController: NSObject, InteractionControlling {
 		viewController.view.subviews.forEach {
 			$0.isUserInteractionEnabled = true
 		}
+	}
+	
+	private func yOfsetOfFrameFor(progress: CGFloat, initialFrame: CGRect, containerView: UIView) -> CGFloat {
+		let yDistanceBetweenInitialFrameAndEndFrame = (containerView.bounds.height / 2) - initialFrame.origin.y
+		let distance = progress * yDistanceBetweenInitialFrameAndEndFrame
+		return initialFrame.origin.y + distance
 	}
 }
 
