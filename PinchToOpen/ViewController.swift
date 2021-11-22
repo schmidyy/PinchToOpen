@@ -11,7 +11,6 @@ class ViewController: UIViewController {
 	let infoLabel: UILabel = {
 		let label = UILabel()
 		label.text = "Try pinching out!"
-//		label.textColor = .white
 		return label
 	}()
 	
@@ -44,14 +43,6 @@ class ViewController: UIViewController {
 		stackView.center(in: view)
 		
 		attachPinchGesture(for: .presentation(parent: self))
-		
-//		let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(_:)))
-//		pinchGesture.delegate = self
-//		view.addGestureRecognizer(pinchGesture)
-//
-//		let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
-//		panGesture.delegate = self
-//		view.addGestureRecognizer(panGesture)
 	}
 	
 	@objc private func buttonTapped() {
@@ -59,46 +50,6 @@ class ViewController: UIViewController {
 		generator.impactOccurred()
 		presentModal()
 	}
-	
-//	@objc private func handlePinch(_ gestureRecognizer: UIPinchGestureRecognizer) {
-//		switch gestureRecognizer.state {
-//		case .began:
-//			let modalController = ModalController()
-//			pinchToPresent = PinchToPresentInteractionController(parentController: self, modalController: modalController)
-//			presentModal(presentingInteractionController: pinchToPresent)
-//
-//			pinchToPresent?.gestureBegan()
-//			print("Pinch began: \(gestureRecognizer.scale)")
-//		case .changed:
-//			pinchToPresent?.gestureChanged(scale: gestureRecognizer.scale, velocity: gestureRecognizer.velocity)
-//			print("Pinch changed: \(gestureRecognizer.scale)")
-//		case .cancelled:
-//			pinchToPresent?.gestureCancelled(velocity: gestureRecognizer.velocity)
-//			pinchToPresent = nil
-//			print("Pinch cancelled: \(gestureRecognizer.scale)")
-//		case .ended:
-//			pinchToPresent?.gestureEnded(scale: gestureRecognizer.scale, velocity: gestureRecognizer.velocity)
-//			pinchToPresent = nil
-//			print("Pinch ended: \(gestureRecognizer.scale)")
-//		default:
-//			break
-//		}
-//
-//		print("Pinch \(gestureRecognizer.state): \(gestureRecognizer.scale)")
-//	}
-//
-//	@objc private func handlePan(_ gestureRecognizer: UIPanGestureRecognizer) {
-//		switch gestureRecognizer.state {
-//		case .began:
-//			print("Pan began: \(gestureRecognizer.translation(in: view))")
-//		case .changed:
-//			print("Pan changed: \(gestureRecognizer.translation(in: view))")
-//		case .ended:
-//			print("Pan ended: \(gestureRecognizer.translation(in: view))")
-//		default:
-//			break
-//		}
-//	}
 }
 
 extension ViewController: UIGestureRecognizerDelegate {

@@ -21,6 +21,8 @@ extension ModalControllerDelegate where Self: UIViewController {
 		modalController.delegate = self
 		
 		modalController.modalPresentationStyle = .custom
-		present(modalController, animated: true, completion: completion)
+		present(modalController, animated: true) {
+			modalController.shouldExpandScreen()
+		}
 	}
 }
