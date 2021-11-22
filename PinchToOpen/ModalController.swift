@@ -30,16 +30,21 @@ class ModalController: UIViewController, PinchPresentable {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		view.backgroundColor = .systemCyan
+		view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
 		view.layer.cornerRadius = 20
 		
 		view.addSubview(closeButton)
 		closeButton.center(in: view)
 		
 		view.heightAnchor.constraint(equalToConstant: 200).isActive = true
+		
+		attachPinchGesture(for: .dismissal(host: self))
 	}
 	
 	@objc private func buttonTapped() {
+		let generator = UIImpactFeedbackGenerator(style: .heavy)
+		generator.impactOccurred()
+		
 		delegate?.close(self)
 	}
 }

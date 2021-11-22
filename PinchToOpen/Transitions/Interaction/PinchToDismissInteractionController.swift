@@ -50,8 +50,6 @@ class PinchToDismissInteractionController: NSObject, InteractionControlling {
 		default:
 			break
 		}
-		
-		print(currentScale)
 	}
 	
 	private func gestureBegan() {

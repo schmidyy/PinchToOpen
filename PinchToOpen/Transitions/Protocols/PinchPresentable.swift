@@ -10,8 +10,6 @@ import UIKit
 protocol PinchPresentable: UIViewController {
 	var transitionManager: UIViewControllerTransitioningDelegate? { get set }
 	var dismissalHandlingScrollView: UIScrollView? { get }
-	
-	/// Update presentation layout
 	func resizeIfNeeded(animated: Bool)
 }
 

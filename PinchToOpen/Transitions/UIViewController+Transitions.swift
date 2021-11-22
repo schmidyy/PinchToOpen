@@ -12,9 +12,9 @@ extension ModalControllerDelegate where Self: UIViewController {
 		let modalController = ModalController()
 		let transitionManager = PinchModalTransitionManager(
 			presentingInteractionController: presentingInteractionController,
-			dismissalInteractionController: PinchToDismissInteractionController(
+			dismissalInteractionController: nil /*PinchToDismissInteractionController(
 				viewController: modalController
-			)
+			)*/
 		)
 		modalController.transitionManager = transitionManager
 		modalController.transitioningDelegate = transitionManager

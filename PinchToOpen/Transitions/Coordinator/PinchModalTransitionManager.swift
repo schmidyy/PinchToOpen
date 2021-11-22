@@ -31,18 +31,18 @@ extension PinchModalTransitionManager: UIViewControllerTransitioningDelegate {
 	}
 	
 	func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-		guard let presentingInteractionController = presentingInteractionController, presentingInteractionController.interactionInProgress else {
-			return nil
-		}
-		return presentingInteractionController
-		// TODO: Implement
-//		return nil
+//		guard let presentingInteractionController = presentingInteractionController, presentingInteractionController.interactionInProgress else {
+//			return nil
+//		}
+//		return presentingInteractionController
+		return nil
 	}
 	
 	func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-		guard let dismissalInteractionController = dismissalInteractionController, dismissalInteractionController.interactionInProgress else {
-			return nil
-		}
-		return dismissalInteractionController
+//		guard let dismissalInteractionController = dismissalInteractionController, dismissalInteractionController.interactionInProgress else {
+//			return nil
+//		}
+//		return dismissalInteractionController
+		return nil
 	}
 }

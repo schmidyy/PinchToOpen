@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4922EA85274BCC0900D52C9E /* UIViewController+Pinch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4922EA84274BCC0900D52C9E /* UIViewController+Pinch.swift */; };
 		495A38C6274523CE0016585E /* UIViewController+Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A38C5274523CE0016585E /* UIViewController+Transitions.swift */; };
 		495A38C8274524820016585E /* InteractionControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A38C7274524820016585E /* InteractionControlling.swift */; };
 		495A38CA274525470016585E /* PinchPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A38C9274525470016585E /* PinchPresentable.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4922EA84274BCC0900D52C9E /* UIViewController+Pinch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Pinch.swift"; sourceTree = "<group>"; };
 		495A38C5274523CE0016585E /* UIViewController+Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Transitions.swift"; sourceTree = "<group>"; };
 		495A38C7274524820016585E /* InteractionControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionControlling.swift; sourceTree = "<group>"; };
 		495A38C9274525470016585E /* PinchPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinchPresentable.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				495A38C5274523CE0016585E /* UIViewController+Transitions.swift */,
+				4922EA84274BCC0900D52C9E /* UIViewController+Pinch.swift */,
 				495A38D1274532D40016585E /* Protocols */,
 				495A38D5274533C20016585E /* Interaction */,
 				495A38D2274532DC0016585E /* Coordinator */,
@@ -205,6 +208,7 @@
 				495A38E327458B380016585E /* PinchToPresentInteractionController.swift in Sources */,
 				49774A2927400BFE001E7BBF /* ModalController.swift in Sources */,
 				495A38CC2745267D0016585E /* PinchModalTransitionManager.swift in Sources */,
+				4922EA85274BCC0900D52C9E /* UIViewController+Pinch.swift in Sources */,
 				49774A27273FD0BC001E7BBF /* UIView+Extensions.swift in Sources */,
 				495A38CE2745273E0016585E /* PinchModalPresentationController.swift in Sources */,
 				495A38D4274533B60016585E /* PinchToDismissInteractionController.swift in Sources */,
